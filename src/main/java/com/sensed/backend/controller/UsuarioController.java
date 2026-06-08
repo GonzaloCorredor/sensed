@@ -47,4 +47,21 @@ public class UsuarioController {
             return ResponseEntity.internalServerError().body(Map.of("error", "Error al registrar: " + e.getMessage()));
         }
     }
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> iniciarSesion(@RequestBody Map<String, String> datosLogin) {
+        String username = datosLogin.get("username");
+        String password = datosLogin.get("password");
+
+        // Buscamos al usuario en la base de datos
+        var usuarioEncontrado = usuarioRepository.findByUsername(username);
+
+        // Si existe y la contraseña coincide
+        if (usuarioEncontrado.isPresent() && usuarioEncontrado.get().getPassword().equals(password)) {
+            return ResponseEntity.ok().body(Map.of("mensaje", "Login exitoso"));
+        } else {
+            return ResponseEntity.status(401).body(Map.of("error", "Usuario o contraseña incorrectos"));
+        }
+    }
 }
+
