@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*") // Permite que cualquier web hable con este servidor
 public class UsuarioController {
 
     @Autowired
