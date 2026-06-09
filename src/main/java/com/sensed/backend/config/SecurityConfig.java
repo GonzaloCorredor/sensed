@@ -52,3 +52,5 @@ public class SecurityConfig {
         return source;
     }
 }
+
+// Forzando actualización para Vercel
