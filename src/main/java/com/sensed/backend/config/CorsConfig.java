@@ -6,7 +6,8 @@ import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+// COMENTAMOS ESTA LÍNEA PARA APAGAR ESTE ARCHIVO Y EVITAR CONFLICTOS
+// @Configuration
 public class CorsConfig {
 
     @Bean
