@@ -32,8 +32,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // Autorizamos a tu dominio real y al localhost por si haces pruebas en tu PC
-        configuration.setAllowedOrigins(Arrays.asList("https://sensed.es", "http://localhost:5500", "http://127.0.0.1:5500"));
+        // Autorizamos a tus dominios reales, al de Vercel y al localhost para pruebas
+        configuration.setAllowedOrigins(Arrays.asList(
+            "https://sensed.es", 
+            "https://www.sensed.es", 
+            "https://sensed-frontend.vercel.app", 
+            "http://localhost:5500", 
+            "http://127.0.0.1:5500"
+        ));
         
         // Permitimos todos los métodos (POST para registro, GET, etc.)
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
